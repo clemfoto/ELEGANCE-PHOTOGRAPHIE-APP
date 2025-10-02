@@ -1,0 +1,55 @@
+
+{
+  "name": "gastos",
+  "fields": {
+    "concepto": {
+      "type": "string",
+      "required": true,
+      "maxLength": 300
+    },
+    "monto": {
+      "type": "number",
+      "required": true,
+      "min": 0
+    },
+    "categoria": {
+      "type": "string",
+      "enum": ["servicios", "materiales", "transporte", "marketing", "personal", "otros", "ingresos"],
+      "required": true
+    },
+    "fecha": {
+      "type": "string",
+      "title": "datetime",
+      "required": true
+    },
+    "tipo": {
+      "type": "string",
+      "enum": ["ingreso", "gasto"],
+      "required": true
+    },
+    "recurrente": {
+      "type": "boolean",
+      "default": false
+    },
+    "mes": {
+      "type": "string",
+      "required": true
+    },
+    "notas": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "creator": {
+      "type": "string",
+      "default": "admin"
+    },
+    "createdAt": {
+      "type": "string",
+      "title": "datetime"
+    },
+    "updatedAt": {
+      "type": "string",
+      "title": "datetime"
+    }
+  }
+}

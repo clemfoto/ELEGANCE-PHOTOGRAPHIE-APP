@@ -1,0 +1,75 @@
+
+{
+  "name": "llamadas_programadas",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["clienteNombre", "email", "fechaLlamada", "estado", "createdAt"],
+        "properties": {
+          "clienteNombre": {
+            "bsonType": "string",
+            "description": "Nombre del cliente"
+          },
+          "email": {
+            "bsonType": "string",
+            "description": "Email del cliente"
+          },
+          "telefono": {
+            "bsonType": "string",
+            "description": "Teléfono del cliente"
+          },
+          "fechaLlamada": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha y hora de la llamada programada"
+          },
+          "duracion": {
+            "bsonType": "int",
+            "minimum": 15,
+            "description": "Duración en minutos"
+          },
+          "tipoLlamada": {
+            "bsonType": "string",
+            "enum": ["consulta_inicial", "seguimiento", "revision_propuesta", "coordinacion"],
+            "description": "Tipo de llamada"
+          },
+          "estado": {
+            "bsonType": "string",
+            "enum": ["programada", "confirmada", "completada", "cancelada", "no_contesto"],
+            "description": "Estado de la llamada"
+          },
+          "notas": {
+            "bsonType": "string",
+            "description": "Notas sobre la llamada"
+          },
+          "calendlyEventId": {
+            "bsonType": "string",
+            "description": "ID del evento en Calendly"
+          },
+          "outlookEventId": {
+            "bsonType": "string",
+            "description": "ID del evento en Outlook"
+          },
+          "recordatorioEnviado": {
+            "bsonType": "bool",
+            "description": "Si se envió recordatorio"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

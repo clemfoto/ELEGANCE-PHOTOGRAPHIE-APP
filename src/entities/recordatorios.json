@@ -1,0 +1,72 @@
+
+{
+  "name": "recordatorios",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["clienteId", "fechaRecordatorio", "tipo", "mensaje", "estado"],
+        "properties": {
+          "clienteId": {
+            "bsonType": "string",
+            "description": "ID del cliente asociado"
+          },
+          "fechaRecordatorio": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha y hora del recordatorio"
+          },
+          "tipo": {
+            "bsonType": "string",
+            "enum": ["evento_proximo", "pago_pendiente", "entrega_fotos", "reunion_planificacion", "otro"],
+            "description": "Tipo de recordatorio"
+          },
+          "mensaje": {
+            "bsonType": "string",
+            "description": "Mensaje del recordatorio"
+          },
+          "estado": {
+            "bsonType": "string",
+            "enum": ["pendiente", "enviado", "visto", "completado"],
+            "description": "Estado del recordatorio"
+          },
+          "prioridad": {
+            "bsonType": "string",
+            "enum": ["baja", "media", "alta", "urgente"],
+            "description": "Prioridad del recordatorio"
+          },
+          "repetir": {
+            "bsonType": "bool",
+            "description": "Si el recordatorio se repite"
+          },
+          "intervaloRepeticion": {
+            "bsonType": "string",
+            "enum": ["diario", "semanal", "mensual"],
+            "description": "Intervalo de repetición"
+          },
+          "canalNotificacion": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string",
+              "enum": ["email", "sms", "whatsapp", "sistema"]
+            },
+            "description": "Canales de notificación"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

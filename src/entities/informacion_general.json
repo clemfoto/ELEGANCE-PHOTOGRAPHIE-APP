@@ -1,0 +1,25 @@
+
+{
+  "fields": {
+    "titulo": {
+      "type": "string",
+      "required": true,
+      "title": "Título"
+    },
+    "descripcion": {
+      "type": "string",
+      "required": false,
+      "title": "Descripción"
+    },
+    "fechaCreacion": {
+      "type": "string",
+      "title": "datetime",
+      "required": true
+    },
+    "fechaModificacion": {
+      "type": "string", 
+      "title": "datetime",
+      "required": true
+    }
+  }
+}

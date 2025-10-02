@@ -1,0 +1,67 @@
+
+{
+  "name": "grupos_fotos",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nombre", "fotos", "createdAt"],
+        "properties": {
+          "nombre": {
+            "bsonType": "string",
+            "description": "Nombre del grupo de fotos"
+          },
+          "descripcion": {
+            "bsonType": "string",
+            "description": "Descripción del grupo"
+          },
+          "fotos": {
+            "bsonType": "array",
+            "description": "URLs de las fotos en el grupo",
+            "items": {
+              "bsonType": "object",
+              "properties": {
+                "url": {
+                  "bsonType": "string"
+                },
+                "nombre": {
+                  "bsonType": "string"
+                },
+                "fechaSubida": {
+                  "bsonType": "string",
+                  "title": "datetime"
+                }
+              }
+            }
+          },
+          "color": {
+            "bsonType": "string",
+            "description": "Color identificativo del grupo"
+          },
+          "categoria": {
+            "bsonType": "string",
+            "enum": ["boda", "eventos", "retratos", "decoracion", "otros"],
+            "description": "Categoría del grupo"
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creador del grupo"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

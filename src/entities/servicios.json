@@ -1,0 +1,67 @@
+
+{
+  "name": "servicios",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nombre", "categoria", "precio", "activo", "createdAt"],
+        "properties": {
+          "nombre": {
+            "bsonType": "string",
+            "description": "Nombre del servicio"
+          },
+          "descripcion": {
+            "bsonType": "string",
+            "description": "Descripción detallada del servicio"
+          },
+          "categoria": {
+            "bsonType": "string",
+            "enum": ["fotografia", "video", "album", "paquetes", "extras"],
+            "description": "Categoría del servicio"
+          },
+          "precio": {
+            "bsonType": "number",
+            "minimum": 0,
+            "description": "Precio del servicio"
+          },
+          "duracion": {
+            "bsonType": "string",
+            "description": "Duración estimada del servicio"
+          },
+          "incluye": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "Lista de elementos incluidos"
+          },
+          "activo": {
+            "bsonType": "bool",
+            "description": "Si el servicio está activo"
+          },
+          "imagenes": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "string"
+            },
+            "description": "URLs de imágenes del servicio"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

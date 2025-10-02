@@ -1,0 +1,85 @@
+
+{
+  "name": "posts",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["titulo", "contenido", "fechaProgramada", "estado", "createdAt"],
+        "properties": {
+          "titulo": {
+            "bsonType": "string",
+            "description": "Título del post"
+          },
+          "contenido": {
+            "bsonType": "string",
+            "description": "Contenido del post"
+          },
+          "fechaProgramada": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha y hora programada para publicar"
+          },
+          "estado": {
+            "bsonType": "string",
+            "enum": ["borrador", "programado", "publicado", "error"],
+            "description": "Estado del post"
+          },
+          "imagenes": {
+            "bsonType": "array",
+            "description": "URLs de imágenes asociadas al post",
+            "items": {
+              "bsonType": "string"
+            }
+          },
+          "grupoFotos": {
+            "bsonType": "string",
+            "description": "ID del grupo de fotos asociado"
+          },
+          "hashtags": {
+            "bsonType": "array",
+            "description": "Hashtags del post",
+            "items": {
+              "bsonType": "string"
+            }
+          },
+          "instagramConfig": {
+            "bsonType": "object",
+            "description": "Configuración específica de Instagram",
+            "properties": {
+              "caption": {
+                "bsonType": "string"
+              },
+              "location": {
+                "bsonType": "string"
+              },
+              "tags": {
+                "bsonType": "array",
+                "items": {
+                  "bsonType": "string"
+                }
+              }
+            }
+          },
+          "creator": {
+            "bsonType": "string",
+            "description": "Creador del post"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

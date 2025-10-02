@@ -1,0 +1,56 @@
+
+{
+  "name": "tasks",
+  "fields": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "enfoque": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "objetivo": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "tiempoEstimado": {
+      "type": "number",
+      "min": 0
+    },
+    "color": {
+      "type": "string",
+      "maxLength": 7
+    },
+    "assignedTo": {
+      "type": "string",
+      "enum": ["CLEM", "DIANA"]
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "default": "medium"
+    },
+    "dueDate": {
+      "type": "string",
+      "title": "datetime"
+    },
+    "createdAt": {
+      "type": "string",
+      "title": "datetime"
+    },
+    "updatedAt": {
+      "type": "string",
+      "title": "datetime"
+    }
+  }
+}

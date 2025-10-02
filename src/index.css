@@ -1,0 +1,92 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors;
+  }
+  
+  .btn-danger {
+    @apply bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6 border border-gray-200;
+  }
+  
+  .alert {
+    @apply p-4 rounded-lg border-l-4;
+  }
+  
+  .alert-warning {
+    @apply bg-yellow-50 border-yellow-400 text-yellow-800;
+  }
+  
+  .alert-danger {
+    @apply bg-red-50 border-red-400 text-red-800;
+  }
+  
+  .alert-info {
+    @apply bg-blue-50 border-blue-400 text-blue-800;
+  }
+  
+  .alert-success {
+    @apply bg-green-50 border-green-400 text-green-800;
+  }
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background-color: #e5e7eb;
+}
+
+.calendar-day {
+  background-color: white;
+  min-height: 100px;
+  padding: 8px;
+  position: relative;
+}
+
+.calendar-day.today {
+  background-color: #dbeafe;
+}
+
+.calendar-day.other-month {
+  background-color: #f9fafb;
+  color: #9ca3af;
+}
+
+.event-indicator {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.event-boda {
+  background-color: #ef4444;
+}
+
+.event-reunion {
+  background-color: #3b82f6;
+}
+
+.event-pago {
+  background-color: #f59e0b;
+}

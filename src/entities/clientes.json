@@ -1,0 +1,222 @@
+
+{
+  "name": "clientes",
+  "fields": [
+    {
+      "name": "nombres",
+      "type": "string",
+      "required": true,
+      "title": "Nombres completos"
+    },
+    {
+      "name": "emails",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "email"
+      },
+      "required": true,
+      "title": "Lista de emails"
+    },
+    {
+      "name": "telefono",
+      "type": "string",
+      "title": "Teléfono"
+    },
+    {
+      "name": "fechaBoda",
+      "type": "string",
+      "required": true,
+      "title": "datetime"
+    },
+    {
+      "name": "ciudad",
+      "type": "string",
+      "required": true,
+      "title": "Ciudad"
+    },
+    {
+      "name": "venue",
+      "type": "string",
+      "required": true,
+      "title": "Venue/Lugar del evento"
+    },
+    {
+      "name": "servicio",
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "type": "string",
+          "enum": ["fotografia", "video", "fotografia_video", "album", "paquete_completo", "personalizado"]
+        },
+        "servicioId": {
+          "type": "string"
+        },
+        "descripcionPersonalizada": {
+          "type": "string"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "precio": {
+          "type": "number"
+        }
+      },
+      "required": true,
+      "title": "Servicio contratado"
+    },
+    {
+      "name": "divisa",
+      "type": "string",
+      "enum": ["EUR", "MXN", "USD", "CAD"],
+      "required": true,
+      "title": "Divisa"
+    },
+    {
+      "name": "formaPago",
+      "type": "string",
+      "enum": ["efectivo", "transferencia", "tarjeta", "financiado", "mixto"],
+      "required": true,
+      "title": "Forma de pago"
+    },
+    {
+      "name": "detallesPago",
+      "type": "object",
+      "properties": {
+        "cuotas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "monto": {"type": "number"},
+              "fechaPago": {"type": "string", "title": "datetime"},
+              "metodoPago": {"type": "string"},
+              "estado": {"type": "string", "enum": ["pendiente", "pagado", "vencido"]},
+              "concepto": {"type": "string"},
+              "comprobante": {"type": "string"}
+            }
+          }
+        },
+        "descuentos": {"type": "number"},
+        "impuestos": {"type": "number"}
+      },
+      "title": "Detalles de pago"
+    },
+    {
+      "name": "montoTotal",
+      "type": "number",
+      "title": "Monto total"
+    },
+    {
+      "name": "montoAbonado",
+      "type": "number",
+      "title": "Monto abonado"
+    },
+    {
+      "name": "proximoPago",
+      "type": "object",
+      "properties": {
+        "monto": {"type": "number"},
+        "fechaVencimiento": {"type": "string", "title": "datetime"},
+        "metodoPago": {"type": "string"}
+      },
+      "title": "Próximo pago"
+    },
+    {
+      "name": "estado",
+      "type": "string",
+      "enum": ["potencial", "confirmado", "en_proceso", "completado", "cancelado"],
+      "required": true,
+      "title": "Estado del cliente"
+    },
+    {
+      "name": "solicitudesEspeciales",
+      "type": "string",
+      "title": "Solicitudes especiales"
+    },
+    {
+      "name": "archivoExcel",
+      "type": "string",
+      "title": "URL del archivo Excel"
+    },
+    {
+      "name": "notas",
+      "type": "string",
+      "title": "Notas internas"
+    },
+    {
+      "name": "listaInvitados",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "required": true
+          },
+          "nombre": {
+            "type": "string",
+            "required": true
+          },
+          "tachado": {
+            "type": "boolean",
+            "default": false
+          },
+          "fechaAgregado": {
+            "type": "string",
+            "title": "datetime",
+            "required": true
+          },
+          "fechaTachado": {
+            "type": "string",
+            "title": "datetime"
+          }
+        }
+      },
+      "title": "Lista de invitados"
+    },
+    {
+      "name": "recordatorios",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fecha": {"type": "string", "title": "datetime"},
+          "tipo": {"type": "string"},
+          "mensaje": {"type": "string"}
+        }
+      },
+      "title": "Recordatorios"
+    },
+    {
+      "name": "alertasConfiguradas",
+      "type": "object",
+      "properties": {
+        "alertaSieteDias": {"type": "boolean"},
+        "alertaPago": {"type": "boolean"},
+        "notificacionCelular": {"type": "boolean"}
+      },
+      "title": "Configuración de alertas"
+    },
+    {
+      "name": "sincronizadoOutlook",
+      "type": "boolean",
+      "title": "Sincronizado con Outlook"
+    },
+    {
+      "name": "outlookEventId",
+      "type": "string",
+      "title": "ID del evento en Outlook"
+    },
+    {
+      "name": "createdAt",
+      "type": "string",
+      "title": "datetime"
+    },
+    {
+      "name": "updatedAt",
+      "type": "string",
+      "title": "datetime"
+    }
+  ]
+}
