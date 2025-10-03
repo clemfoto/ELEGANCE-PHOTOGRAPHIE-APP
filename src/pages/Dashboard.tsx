@@ -1,4 +1,5 @@
 
+    
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useClientes } from '../hooks/useClientes'
@@ -126,7 +127,7 @@ const Dashboard: React.FC = () => {
                   <div>
                     <p className="font-medium text-gray-900">{cliente.nombres}</p>
                     <p className="text-sm text-gray-600">{cliente.venue}, {cliente.ciudad}</p>
-                    <p className="text-sm text-gray-500">{cliente.servicio}</p>
+                    <p className="text-sm text-gray-500">{cliente.servicio?.nombre || 'Servicio no especificado'}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-sm font-medium text-gray-900">
@@ -203,3 +204,5 @@ const Dashboard: React.FC = () => {
 }
 
 export default Dashboard
+
+    
